@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/login_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="로그인 화면"
+        android:textSize="40sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/id_text"/>
+
+    <TextView
+        android:id="@+id/id_text"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="50dp"
+        android:text="ID"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/id_textbox"
+        app:layout_constraintTop_toBottomOf="@id/login_text"
+        app:layout_constraintBottom_toTopOf="@id/pw_text"/>
+
+    <EditText
+        android:id="@+id/id_textbox"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:text="ID를 입력하세요"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/id_text"
+        app:layout_constraintLeft_toRightOf="@id/id_text"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/id_text" />
+
+    <TextView
+        android:id="@+id/pw_text"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="20dp"
+        android:text="PW"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/pw_textbox"
+        app:layout_constraintTop_toBottomOf="@id/id_text"
+        app:layout_constraintBottom_toTopOf="@id/login_button"/>
+
+    <EditText
+        android:id="@+id/pw_textbox"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:text="PW를 입력하세요"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/pw_text"
+        app:layout_constraintLeft_toRightOf="@id/pw_text"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/pw_text" />
+
+    <CheckBox
+        android:id="@+id/idpw_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ID/PW 저장"
+        app:layout_constraintTop_toBottomOf="@id/pw_textbox"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/auto_login"/>
+
+    <CheckBox
+        android:id="@+id/auto_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="자동 로그인"
+        app:layout_constraintTop_toBottomOf="@id/pw_textbox"
+        app:layout_constraintLeft_toRightOf="@id/idpw_checkbox"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+        android:id="@+id/find_id"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginTop="20dp"
+        android:text="ID/PW 찾기"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/register_textbutton"
+        app:layout_constraintTop_toBottomOf="@id/login_button" />
+
+    <TextView
+        android:id="@+id/register_textbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text="회원가입"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/find_id"
+        app:layout_constraintLeft_toRightOf="@id/find_id"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/find_id" />
+
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="로그인"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pw_textbox"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
