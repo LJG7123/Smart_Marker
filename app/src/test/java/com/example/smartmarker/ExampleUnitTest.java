@@ -1,4 +1,4 @@
-package com.example.gpstracker;
+package com.example.smartmarker;
 
 import org.junit.Test;
 
