@@ -8,6 +8,8 @@ import android.os.Bundle;
 
 import com.google.android.material.tabs.TabLayout;
 
+import java.util.ArrayList;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,6 +26,16 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.addTab(tabLayout.newTab().setText("내정보"));
 
         viewPager=findViewById(R.id.viewpager);
+
+        ArrayList<Integer> image = new ArrayList<>();
+        image.add(R.drawable.ic_baseline_settings_24);
+        image.add(R.drawable.ic_baseline_map_24);
+        image.add(R.drawable.ic_baseline_person_outline_24);
+
+        for (int i = 0; i < 3; i++)
+        {
+            tabLayout.getTabAt(i).setIcon(image.get(i));
+        }
 
 
         //ViewPager Fragment 연결

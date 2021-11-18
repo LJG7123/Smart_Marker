@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "165239538512",
+    "project_id": "smartmarker-107ec",
+    "storage_bucket": "smartmarker-107ec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:165239538512:android:5896987745f4046f7ca255",
+        "android_client_info": {
+          "package_name": "com.example.smartmarker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "165239538512-dku1jr3jh0ahr30lijpql4eippe3fmvt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDd5PVZ4x50VAAONdNcNadHNLNWE6bMCUg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "165239538512-dku1jr3jh0ahr30lijpql4eippe3fmvt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

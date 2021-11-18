@@ -2,22 +2,49 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.smartmarker">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
+        android:label="Smart Marker"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartMarker">
-        <activity android:name="com.example.smartmarker.MainActivity">
+        <activity android:name="MainActivity">
+
+        </activity>
+
+
+        <activity android:name=".Signin" />
+
+        <activity android:name=".Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+        <service
+            android:name="com.example.smartmarker.Notifications.FirebaseNotificationService"
+            android:stopWithTask="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="r5lrkwge4n" />
+
+
     </application>
 
 </manifest>

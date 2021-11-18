@@ -1,6 +1,5 @@
 package com.example.smartmarker;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
@@ -15,7 +14,7 @@ public class FragmentAdapter extends FragmentStatePagerAdapter {
     public FragmentAdapter(FragmentManager fm) {
         super(fm);
         fragments.add(new SettingsFragment());
-        fragments.add(new MapFragment());
+        fragments.add(new NaverMapFragment());
         fragments.add(new MyPageFragment());
     }
 
