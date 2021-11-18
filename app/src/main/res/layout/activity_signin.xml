@@ -5,39 +5,53 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Signin">
+    tools:context=".Signin"
+    android:background="#CCF0F4">
 
 
     <EditText
         android:id="@+id/Signin_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="아이디"/>
+        android:layout_gravity="center"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:hint=" 아이디"
+        android:background="@drawable/roundbutton2"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"/>
 
     <EditText
         android:id="@+id/Signin_pw"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="비밀번호"/>
+        android:layout_gravity="center"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:hint=" 비밀번호"
+        android:background="@drawable/roundbutton2"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"/>
 
-    <EditText
-        android:id="@+id/Signin_pwcheck"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="비밀번호 확인"/>
+
 
     <EditText
         android:id="@+id/Signin_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="이름"/>
+        android:layout_gravity="center"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:hint=" 이름"
+        android:background="@drawable/roundbutton2"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"/>
 
 
-    <Button
-        android:id="@+id/Signin_btn_signin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <TextView
+        android:id="@+id/Login_back"
+        android:layout_gravity="center"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:gravity="center"
         android:onClick="signin"
-        android:hint="회원가입"/>
+        android:hint="회원가입"
+        android:textColor="@color/black"
+        android:background="@drawable/roundbutton2"
+        android:layout_marginTop="10dp" />
 
 </LinearLayout>

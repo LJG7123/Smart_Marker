@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -18,7 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Login extends AppCompatActivity {
 
-    Button Signin;
+    TextView Login, Signin;
     EditText Login_id,Login_pw;
     String string_id, string_pw;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -33,6 +34,8 @@ public class Login extends AppCompatActivity {
 
         Login_id=(EditText)findViewById(R.id.Login_id);
         Login_pw=(EditText)findViewById(R.id.Login_pw);
+        Login=(TextView) findViewById(R.id.Login);
+        Signin=(TextView) findViewById(R.id.Signin);
     }
 
     public void sign_Onclick(View v) {

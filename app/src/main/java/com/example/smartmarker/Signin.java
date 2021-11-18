@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -21,8 +22,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 public class Signin extends AppCompatActivity {
-    EditText Signin_id, Signin_pw, Signin_pwcheck, Signin_name;
-    Button Signin_btn_signin;
+    EditText Signin_id, Signin_pw, Signin_name;
+    TextView Login_back;
     String string_id, string_pw, string_name;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference db = database.getReference();
@@ -35,8 +36,7 @@ public class Signin extends AppCompatActivity {
         Signin_id = (EditText) findViewById(R.id.Signin_id);
         Signin_pw = (EditText) findViewById(R.id.Signin_pw);
         Signin_name = (EditText) findViewById(R.id.Signin_name);
-
-        Signin_btn_signin = (Button) findViewById(R.id.Signin_btn_signin);
+        Login_back = (TextView) findViewById(R.id.Login_back);
 
 
     }

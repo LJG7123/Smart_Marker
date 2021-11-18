@@ -5,15 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#CCF0F4">
 
     <TextView
-        android:layout_gravity="left"
-        android:layout_marginLeft="50dp"
+        android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="Smart"
+        android:layout_marginTop="170dp"
+        android:text="Smart Marker"
         android:textColor="@color/black"
         android:textSize="50sp" />
 
@@ -23,80 +23,59 @@
         android:layout_gravity="center"
         android:src="@drawable/ic_baseline_share_location_24"/>
 
-    <TextView
-        android:id="@+id/id_text"
-        android:layout_width="50dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="50dp"
-        android:text="ID"
-        android:textColor="@color/black"
-        android:textSize="15sp" />
 
     <EditText
         android:id="@+id/Login_id"
-        android:layout_width="150dp"
+        android:layout_width="200dp"
         android:layout_height="40dp"
-        android:hint="ID를 입력하세요"
+        android:hint=" ID를 입력하세요"
         android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="@+id/id_text"
-        app:layout_constraintLeft_toRightOf="@id/id_text"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/id_text" />
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/roundbutton"/>
 
-    <TextView
-        android:id="@+id/pw_text"
-        android:layout_width="50dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="20dp"
-        android:text="PW"
-        android:textSize="15sp"
-        android:textColor="@color/black" />
 
     <EditText
         android:id="@+id/Login_pw"
-        android:layout_width="150dp"
+        android:layout_width="200dp"
         android:layout_height="40dp"
-        android:hint="PW를 입력하세요"
+        android:layout_gravity="center"
+        android:hint=" PW를 입력하세요"
         android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="@+id/pw_text"
-        app:layout_constraintLeft_toRightOf="@id/pw_text"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/pw_text" />
+        android:layout_marginTop="10dp"
+        android:background="@drawable/roundbutton" />
 
-    <CheckBox
-        android:id="@+id/idpw_checkbox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ID/PW 저장"
-        app:layout_constraintTop_toBottomOf="@id/Login_pw"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/auto_login"/>
+
 
     <CheckBox
         android:id="@+id/auto_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="자동 로그인"
-        app:layout_constraintTop_toBottomOf="@id/Login_pw"
-        app:layout_constraintLeft_toRightOf="@id/idpw_checkbox"
-        app:layout_constraintRight_toRightOf="parent"/>
+        android:layout_gravity="center" />
 
+    <TextView
+        android:id="@+id/Login"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:background="@drawable/roundbutton"
+        android:gravity="center"
+        android:onClick="Login_main"
+        android:text="로그인"
+        android:textSize="15dp"
+        android:clickable="true" />
 
     <TextView
         android:id="@+id/Signin"
+        android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:onClick="sign_Onclick"
         android:text="회원가입"
         android:textSize="15dp"
+        android:textColor="@color/black"
         android:clickable="true"/>
-
-    <Button
-        android:id="@+id/Login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="로그인"
-        android:onClick="Login_main"/>
 
 </LinearLayout>
