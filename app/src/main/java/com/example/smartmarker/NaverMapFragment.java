@@ -75,7 +75,7 @@ public class NaverMapFragment extends Fragment implements OnMapReadyCallback{
             // Ask user to enable GPS/network in settings.
             gps.showSettingsAlert();
         }
-
+//
 
         return view;
     }
