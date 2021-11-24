@@ -62,7 +62,8 @@ public class Login extends AppCompatActivity {
                         PreferenceManager.setUserID(Login.this, string_id);
 
                         startActivity(intent);
-                    } else {
+                    }
+                    else {
                         sendmsg("비밀번호가 틀렸습니다.");
                     }
                 }

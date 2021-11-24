@@ -9,37 +9,69 @@
     android:background="#CCF0F4">
 
 
-    <EditText
-        android:id="@+id/Signin_id"
-        android:layout_gravity="center"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:hint=" 아이디"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
         android:background="@drawable/roundbutton2"
-        android:textColor="@color/black"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginTop="10dp">
 
-    <EditText
-        android:id="@+id/Signin_pw"
-        android:layout_gravity="center"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:hint=" 비밀번호"
+        <EditText
+            android:id="@+id/Signin_id"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="아이디"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
         android:background="@drawable/roundbutton2"
-        android:textColor="@color/black"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginTop="10dp">
+
+        <EditText
+            android:id="@+id/Signin_pw"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:hint="비밀번호"
+            android:textColor="@color/black" />
+    </LinearLayout>
 
 
 
-    <EditText
-        android:id="@+id/Signin_name"
-        android:layout_gravity="center"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:hint=" 이름"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
         android:background="@drawable/roundbutton2"
-        android:textColor="@color/black"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginTop="10dp">
+
+        <EditText
+            android:id="@+id/Signin_name"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:hint="이름"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
 
 
     <TextView
@@ -52,6 +84,6 @@
         android:hint="회원가입"
         android:textColor="@color/black"
         android:background="@drawable/roundbutton2"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="20dp" />
 
 </LinearLayout>
