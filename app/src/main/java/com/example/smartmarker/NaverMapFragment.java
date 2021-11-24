@@ -40,6 +40,7 @@ public class NaverMapFragment extends Fragment implements OnMapReadyCallback{
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1000;
     private FusedLocationSource locationSource;
     //
+    //
     private void getpermisson() {
 
         // 메니패스트에 권한이 있는지 확인
