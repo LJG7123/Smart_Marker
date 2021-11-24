@@ -1,6 +1,8 @@
 package com.example.smartmarker;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.graphics.PointF;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,10 +13,13 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.UiThread;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import com.naver.maps.geometry.LatLng;
+import com.google.android.gms.maps.model.LatLng;
+import com.naver.maps.map.CameraPosition;
 import com.naver.maps.map.LocationTrackingMode;
 import com.naver.maps.map.MapFragment;
 import com.naver.maps.map.NaverMap;
@@ -25,20 +30,50 @@ import com.naver.maps.map.util.FusedLocationSource;
 
 public class NaverMapFragment extends Fragment implements OnMapReadyCallback{
 
-
-
     private NaverMap naverMap;
     private MapFragment mapFragment;
     private Marker houseMarker;
+    GPSTracker gps;
+    private double latitude;
+    private double longitude;
     Context context;
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1000;
     private FusedLocationSource locationSource;
+    private void getpermisson() {
+
+        // 메니패스트에 권한이 있는지 확인
+        int permiCheck_loca = ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION);
+
+        //앱권한이 없으면 권한 요청
+        if (permiCheck_loca == PackageManager.PERMISSION_DENIED) {
+            Log.d("권한 없는 상태", "");
+            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 0);
+        } else {
+            //
+            Log.d("권한 있는 상태", "");
+        }
+    }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_map, container, false);
         context = getActivity();
+        getpermisson();
+        gps=new GPSTracker(context);
+        if (gps.canGetLocation()) {
+
+            latitude = gps.getLatitude();
+            longitude = gps.getLongitude();
+            Log.d("latitude", latitude + "");
+            Log.d("longitude", longitude + "");
+
+        } else {
+            // Can't get location.
+            // GPS or network is not enabled.
+            // Ask user to enable GPS/network in settings.
+            gps.showSettingsAlert();
+        }
 
 
         return view;
@@ -61,13 +96,12 @@ public class NaverMapFragment extends Fragment implements OnMapReadyCallback{
     public void onMapReady(@NonNull NaverMap naverMap) {
         this.naverMap = naverMap;
         houseMarker = new Marker();
-        naverMap.setOnMapClickListener(new NaverMap.OnMapClickListener() {
-            @Override
-            public void onMapClick(@NonNull PointF pointF, @NonNull LatLng latLng) {
-                houseMarker.setPosition(latLng);
-                houseMarker.setMap(naverMap);
-            }
-        });
+        Log.d("latitude", Double.toString(latitude));
+
+        CameraPosition cameraPosition=new CameraPosition(new com.naver.maps.geometry.LatLng(latitude,longitude),15);
+        naverMap.setCameraPosition(cameraPosition);
+
+
 
     }
 }

@@ -2,9 +2,15 @@ package com.example.smartmarker;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.google.android.material.tabs.TabLayout;
 
@@ -19,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         tabLayout=findViewById(R.id.tab);
         tabLayout.addTab(tabLayout.newTab().setText("설정"));
@@ -38,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+
+
         //ViewPager Fragment 연결
         viewPager.setAdapter(new FragmentAdapter(getSupportFragmentManager()));
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
@@ -45,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
+
             }
 
             @Override
@@ -58,4 +68,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 }
