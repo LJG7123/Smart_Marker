@@ -1,6 +1,7 @@
 package com.example.smartmarker;
 
 import android.Manifest;
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.PointF;
@@ -18,7 +19,8 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import com.google.android.gms.maps.model.LatLng;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.naver.maps.geometry.LatLng;
 import com.naver.maps.map.CameraPosition;
 import com.naver.maps.map.LocationTrackingMode;
 import com.naver.maps.map.MapFragment;
@@ -39,6 +41,9 @@ public class NaverMapFragment extends Fragment implements OnMapReadyCallback{
     Context context;
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1000;
     private FusedLocationSource locationSource;
+    private FloatingActionButton fab;
+    private boolean editable = false;
+    private boolean fabMain_status = false;
     //
     //
     private void getpermisson() {
@@ -76,9 +81,29 @@ public class NaverMapFragment extends Fragment implements OnMapReadyCallback{
             // Ask user to enable GPS/network in settings.
             gps.showSettingsAlert();
         }
+
+        fab = view.findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                toggleFab();
+            }
+        });
+
 //
 //
         return view;
+    }
+
+    public void toggleFab() {
+        if(fabMain_status){
+            ObjectAnimator.ofFloat(fab, View.ROTATION, 45f, 0f).start();
+        }
+        else {
+            ObjectAnimator.ofFloat(fab, View.ROTATION, 0f, 45f).start();
+        }
+        fabMain_status = !fabMain_status;
+        editable = !editable;
     }
 
     @Override
@@ -91,18 +116,46 @@ public class NaverMapFragment extends Fragment implements OnMapReadyCallback{
             fm.beginTransaction().add(R.id.map, mapFragment).commit();
         }
         mapFragment.getMapAsync(this);
+        locationSource = new FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE);
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String[] permissions,  @NonNull int[] grantResults) {
+        if (locationSource.onRequestPermissionsResult(
+                requestCode, permissions, grantResults)) {
+            if (!locationSource.isActivated()) { // 권한 거부됨
+                naverMap.setLocationTrackingMode(LocationTrackingMode.None);
+            }
+            return;
+        }
+        super.onRequestPermissionsResult(
+                requestCode, permissions, grantResults);
     }
 
     @UiThread
     @Override
     public void onMapReady(@NonNull NaverMap naverMap) {
         this.naverMap = naverMap;
+        this.naverMap.setLocationSource(locationSource);
         houseMarker = new Marker();
         Log.d("latitude", Double.toString(latitude));
+
+        naverMap.setLocationTrackingMode(LocationTrackingMode.Follow);
 
         CameraPosition cameraPosition=new CameraPosition(new com.naver.maps.geometry.LatLng(latitude,longitude),15);
         naverMap.setCameraPosition(cameraPosition);
 
+        this.naverMap.setOnMapClickListener(new NaverMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(@NonNull PointF pointF, @NonNull LatLng latLng) {
+                if(editable) {
+                    houseMarker.setPosition(latLng);
+                    houseMarker.setMap(naverMap);
+                }
+            }
+        });
 
 
     }
