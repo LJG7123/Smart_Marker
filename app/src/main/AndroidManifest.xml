@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -16,13 +16,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartMarker">
-        <activity android:name="MainActivity">
-
-        </activity>
-
-
+        <activity
+            android:name=".AlarmActivity"
+            android:exported="true" />
+        <activity android:name=".MainActivity"></activity>
         <activity android:name=".Signin" />
-
         <activity android:name=".Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,9 +29,10 @@
             </intent-filter>
         </activity>
 
+        <receiver android:name=".AlertReceiver" />
 
         <service
-            android:name="com.example.smartmarker.Notifications.FirebaseNotificationService"
+            android:name=".Notifications.FirebaseNotificationService"
             android:stopWithTask="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
@@ -44,8 +43,6 @@
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="r5lrkwge4n" />
-
-
     </application>
 
 </manifest>

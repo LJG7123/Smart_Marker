@@ -1,23 +1,30 @@
 package com.example.smartmarker;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.viewpager.widget.ViewPager;
-
-import android.Manifest;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.TimePicker;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
+import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
-
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
+
+    public static final String TAG = "MAIN";
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -26,13 +33,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         tabLayout=findViewById(R.id.tab);
         tabLayout.addTab(tabLayout.newTab().setText("설정"));
         tabLayout.addTab(tabLayout.newTab().setText("지도"));
         tabLayout.addTab(tabLayout.newTab().setText("내정보"));
 
         viewPager=findViewById(R.id.viewpager);
+
 
         ArrayList<Integer> image = new ArrayList<>();
         image.add(R.drawable.ic_baseline_settings_24);
@@ -43,9 +50,6 @@ public class MainActivity extends AppCompatActivity {
         {
             tabLayout.getTabAt(i).setIcon(image.get(i));
         }
-
-
-
 
         //ViewPager Fragment 연결
         viewPager.setAdapter(new FragmentAdapter(getSupportFragmentManager()));
@@ -68,5 +72,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 
 }
