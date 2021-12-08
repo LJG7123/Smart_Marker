@@ -56,8 +56,8 @@ public class HomesaveActivity extends AppCompatActivity implements View.OnClickL
 
                 Homelatitude = gps.getLatitude();
                 Homelongitude = gps.getLongitude();
-                Log.d("Homelatitude", Homelatitude + "");
-                Log.d("Homelongitude", Homelongitude + "");
+                //Log.d("Homelatitude", Homelatitude + "");
+                //Log.d("Homelongitude", Homelongitude + "");
 
             } else {
                 // Can't get location.
