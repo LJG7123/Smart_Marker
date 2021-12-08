@@ -19,6 +19,7 @@
         <activity
             android:name=".AlarmActivity"
             android:exported="true" />
+        <activity android:name=".HomesaveActivity"/>
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".Signin" />
         <activity android:name=".Login">

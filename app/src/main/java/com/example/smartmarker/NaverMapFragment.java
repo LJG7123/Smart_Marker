@@ -3,6 +3,7 @@ package com.example.smartmarker;
 import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.graphics.PointF;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,6 +19,8 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.model.PolylineOptions;
 import com.naver.maps.geometry.LatLng;
 import com.naver.maps.map.CameraPosition;
 import com.naver.maps.map.LocationTrackingMode;
@@ -26,17 +29,28 @@ import com.naver.maps.map.NaverMap;
 import com.naver.maps.map.OnMapReadyCallback;
 import com.naver.maps.map.UiSettings;
 import com.naver.maps.map.overlay.Marker;
+import com.naver.maps.map.overlay.MultipartPathOverlay;
+import com.naver.maps.map.overlay.PathOverlay;
 import com.naver.maps.map.util.FusedLocationSource;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class NaverMapFragment extends Fragment implements OnMapReadyCallback{
 
     private NaverMap naverMap;
+
+    GPSTracker gps;
+
+
     private MapFragment mapFragment;
     private Marker houseMarker;
-    GPSTracker gps;
+
     private double latitude;
     private double longitude;
     Context context;
+
+
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1000;
     private FusedLocationSource locationSource;
     //
@@ -55,6 +69,7 @@ public class NaverMapFragment extends Fragment implements OnMapReadyCallback{
             Log.d("권한 있는 상태", "");
         }
     }
+
 
     @Nullable
     @Override
@@ -79,6 +94,7 @@ public class NaverMapFragment extends Fragment implements OnMapReadyCallback{
 //
 //
         return view;
+
     }
 
     @Override
@@ -103,11 +119,13 @@ public class NaverMapFragment extends Fragment implements OnMapReadyCallback{
         CameraPosition cameraPosition=new CameraPosition(new com.naver.maps.geometry.LatLng(latitude,longitude),15);
         naverMap.setCameraPosition(cameraPosition);
 
+
         naverMap.setOnMapClickListener(new NaverMap.OnMapClickListener() {
             @Override
             public void onMapClick(@NonNull PointF pointF, @NonNull LatLng latLng) {
                 houseMarker.setPosition(latLng);
                 houseMarker.setMap(naverMap);
+
             }
 
         });
