@@ -2,6 +2,7 @@ package com.example.smartmarker;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -36,6 +37,18 @@ public class Login extends AppCompatActivity {
         Login_pw=(EditText)findViewById(R.id.Login_pw);
         Login=(TextView) findViewById(R.id.Login);
         Signin=(TextView) findViewById(R.id.Signin);
+
+        Login_pw.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event){
+                if(event.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER){
+
+                    Login.performClick();
+                    return true;
+                }
+                return false;
+            }
+        });
     }
 
     public void sign_Onclick(View v) {

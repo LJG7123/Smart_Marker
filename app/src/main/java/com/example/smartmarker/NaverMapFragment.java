@@ -107,12 +107,29 @@ public class NaverMapFragment extends Fragment implements OnMapReadyCallback{
             fm.beginTransaction().add(R.id.map, mapFragment).commit();
         }
         mapFragment.getMapAsync(this);
+        locationSource = new FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String[] permissions,  @NonNull int[] grantResults) {
+        if (locationSource.onRequestPermissionsResult(
+                requestCode, permissions, grantResults)) {
+            if (!locationSource.isActivated()) { // 권한 거부됨
+                naverMap.setLocationTrackingMode(LocationTrackingMode.None);
+            }
+            return;
+        }
+        super.onRequestPermissionsResult(
+                requestCode, permissions, grantResults);
     }
 
     @UiThread
     @Override
     public void onMapReady(@NonNull NaverMap naverMap) {
         this.naverMap = naverMap;
+        this.naverMap.setLocationSource(locationSource);
+        this.naverMap.setLocationTrackingMode(LocationTrackingMode.Follow);
         houseMarker = new Marker();
         Log.d("latitude", Double.toString(latitude));
 
@@ -123,8 +140,7 @@ public class NaverMapFragment extends Fragment implements OnMapReadyCallback{
         naverMap.setOnMapClickListener(new NaverMap.OnMapClickListener() {
             @Override
             public void onMapClick(@NonNull PointF pointF, @NonNull LatLng latLng) {
-                houseMarker.setPosition(latLng);
-                houseMarker.setMap(naverMap);
+
 
             }
 

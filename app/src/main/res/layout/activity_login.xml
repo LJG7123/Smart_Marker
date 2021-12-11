@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".Login"
     android:orientation="vertical"
     android:background="#CCF0F4">
 
@@ -37,6 +37,7 @@
             android:layout_height="wrap_content"
             android:hint="ID를 입력하세요"
             android:textSize="15dp"
+            android:singleLine="true"
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"/>
@@ -58,6 +59,8 @@
             android:layout_gravity="center"
             android:hint="PW를 입력하세요"
             android:textSize="15dp"
+            android:singleLine="true"
+            android:inputType="textPassword"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"/>
     </LinearLayout>
