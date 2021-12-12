@@ -27,7 +27,6 @@ public class Login extends AppCompatActivity {
     private DatabaseReference db = database.getReference();
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

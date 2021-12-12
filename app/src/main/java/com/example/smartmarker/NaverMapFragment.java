@@ -42,7 +42,6 @@ public class NaverMapFragment extends Fragment implements OnMapReadyCallback{
 
     GPSTracker gps;
 
-
     private MapFragment mapFragment;
     private Marker houseMarker;
 

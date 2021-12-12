@@ -66,8 +66,6 @@
     </LinearLayout>
 
 
-
-
     <CheckBox
         android:id="@+id/auto_login"
         android:layout_width="wrap_content"
