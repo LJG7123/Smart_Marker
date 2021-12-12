@@ -140,9 +140,6 @@ public class NaverMapFragment extends Fragment implements OnMapReadyCallback{
             @Override
             public void onMapClick(@NonNull PointF pointF, @NonNull LatLng latLng) {
 
-                houseMarker.setPosition(latLng);
-                houseMarker.setMap(naverMap);
-
             }
 
         });
