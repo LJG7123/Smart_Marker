@@ -3,7 +3,6 @@ package com.example.smartmarker;
 public class User {
 
     private String id, pw, name, token;
-
     public User(){
 
     }
