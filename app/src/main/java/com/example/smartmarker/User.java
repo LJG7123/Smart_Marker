@@ -2,15 +2,16 @@ package com.example.smartmarker;
 
 public class User {
 
-    private String id, pw, name, token;
+    private String id, pw, name, phone, token;
     public User(){
 
     }
 
-    public User(String id, String pw, String name,  String token) {
+    public User(String id, String pw, String name, String phone, String token) {
         this.id = id;
         this.pw = pw;
         this.name = name;
+        this.phone= phone;
         this.token = token;
     }
 
@@ -38,6 +39,10 @@ public class User {
     public void setName(String name) {
         this.name = name;
     }
+
+    public String getPhone() { return phone; }
+
+    public void setPhone(String phone) { this.phone = phone; }
 
     public String getToken() {
         return token;

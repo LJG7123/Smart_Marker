@@ -22,9 +22,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 public class Signin extends AppCompatActivity {
-    EditText Signin_id, Signin_pw, Signin_name;
+    EditText Signin_id, Signin_pw, Signin_name, Signin_phone;
     TextView Login_back;
-    String string_id, string_pw, string_name;
+    String string_id, string_pw, string_name, string_phone;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference db = database.getReference();
 
@@ -36,8 +36,8 @@ public class Signin extends AppCompatActivity {
         Signin_id = (EditText) findViewById(R.id.Signin_id);
         Signin_pw = (EditText) findViewById(R.id.Signin_pw);
         Signin_name = (EditText) findViewById(R.id.Signin_name);
+        Signin_phone = (EditText) findViewById(R.id.Signin_phone);
         Login_back = (TextView) findViewById(R.id.Login_back);
-
 
     }
 
@@ -46,6 +46,7 @@ public class Signin extends AppCompatActivity {
         string_id = Signin_id.getText().toString();
         string_pw = Signin_pw.getText().toString();
         string_name = Signin_name.getText().toString();
+        string_phone = Signin_phone.getText().toString();
 
 
         FirebaseMessaging.getInstance().getToken()
@@ -57,9 +58,10 @@ public class Signin extends AppCompatActivity {
                             return;
                         }
 
+
                         String token = task.getResult();
 
-                        User newuser = new User(string_id, string_pw, string_name, token);
+                        User newuser = new User(string_id, string_pw, string_name, string_phone, token);
 
 
                         db.child("Users").child(string_id).setValue(newuser); //id로 구분. setValue->정보 입력.

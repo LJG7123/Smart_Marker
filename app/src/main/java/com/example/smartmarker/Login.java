@@ -41,7 +41,6 @@ public class Login extends AppCompatActivity {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event){
                 if(event.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER){
-
                     Login.performClick();
                     return true;
                 }
@@ -72,7 +71,6 @@ public class Login extends AppCompatActivity {
 
                     if (user.getPw().equals(string_pw)) {
                         PreferenceManager.setUserID(Login.this, string_id);
-
                         startActivity(intent);
                     }
                     else {
