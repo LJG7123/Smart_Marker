@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Login"
     android:orientation="vertical"
-    android:background="#CCF0F4">
+    android:background="#c6e2ff">
 
     <TextView
         android:layout_gravity="center"
@@ -14,15 +14,17 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="170dp"
         android:text="Smart Marker"
-        android:textColor="@color/black"
+        android:textColor="#000000"
         android:textSize="50sp" />
+
 
     <ImageView
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
-        android:src="@drawable/ic_baseline_share_location_24"/>
+        android:src="@drawable/mainicon"
 
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
