@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.smartmarker.repositories.RepositoryAccount;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -21,10 +22,13 @@ public class MyPageFragment extends Fragment {
 
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference db = database.getReference();
+
+    private RepositoryAccount repositoryAccount = RepositoryAccount.getInstance();
     TextView Mypage_id;
     TextView Mypage_name;
     TextView Mypage_phone;
     TextView Mypage_home;
+
 
     @Nullable
     @Override
@@ -36,7 +40,7 @@ public class MyPageFragment extends Fragment {
         Mypage_phone=(TextView)view.findViewById(R.id.Mypage_phone);
         Mypage_home=(TextView)view.findViewById(R.id.Mypage_home);
 
-        db.child("Users").child("a").addValueEventListener(new ValueEventListener() {
+        db.child("Users").child(repositoryAccount.getId()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User user = snapshot.getValue(User.class);

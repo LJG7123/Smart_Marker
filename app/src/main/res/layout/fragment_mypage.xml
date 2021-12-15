@@ -5,39 +5,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:orientation="vertical">
-
+    android:orientation="vertical"
+    android:background="#c6e2ff">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="80dp">
+        android:layout_marginTop="215dp"
+        android:layout_marginLeft="60dp">
 
         <TextView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="아이디"
             android:textColor="@color/black"
-            android:textSize="20sp">
+            android:textSize="22sp">
         </TextView>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_height="30dp"
             android:gravity="center"
             android:background="@drawable/roundbutton2"
-            android:layout_marginLeft="80dp"
-            android:layout_marginRight="80dp">
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="60dp">
 
             <TextView
                 android:id="@+id/Mypage_id"
-                android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:textColor="@color/black" />
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/black"
+                android:textSize="23sp" />
         </LinearLayout>
 
     </LinearLayout>
@@ -46,22 +48,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="60dp">
 
         <TextView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="보호자 이름"
-            android:textSize="20sp">
+            android:textColor="@color/black"
+            android:textSize="21sp">
         </TextView>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_height="30dp"
             android:gravity="center"
             android:background="@drawable/roundbutton2"
-            android:layout_marginLeft="80dp"
-            android:layout_marginRight="80dp">
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="60dp">
 
             <TextView
                 android:id="@+id/Mypage_name"
@@ -69,7 +73,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-
+                android:textSize="23sp"
                 android:textColor="@color/black" />
         </LinearLayout>
 
@@ -79,55 +83,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="10dp">
-
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="집 주소"
-            android:textSize="20sp">
-        </TextView>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:gravity="center"
-            android:background="@drawable/roundbutton2"
-            android:layout_marginLeft="80dp"
-            android:layout_marginRight="80dp">
-
-            <TextView
-                android:id="@+id/Mypage_home"
-                android:layout_gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:textColor="@color/black"
-                />
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="60dp">
 
         <TextView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="비상 연락처"
-            android:textSize="20sp">
+            android:textColor="@color/black"
+            android:textSize="21sp">
         </TextView>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_height="30dp"
             android:gravity="center"
             android:background="@drawable/roundbutton2"
-            android:layout_marginLeft="80dp"
-            android:layout_marginRight="80dp">
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="60dp">
 
             <TextView
                 android:id="@+id/Mypage_phone"
@@ -136,6 +109,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:textColor="@color/black"
+                android:textSize="23sp"
                 />
         </LinearLayout>
 
@@ -145,22 +119,60 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="60dp">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="집 주소"
+            android:textColor="@color/black"
+            android:textSize="22sp">
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:background="@drawable/roundbutton2"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="60dp">
+
+            <TextView
+                android:id="@+id/Mypage_home"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/black"
+                android:textSize="23sp"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="60dp">
 
         <TextView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="설정 범위"
-            android:textSize="20sp">
+            android:textColor="@color/black"
+            android:textSize="22sp">
         </TextView>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_height="30dp"
             android:gravity="center"
             android:background="@drawable/roundbutton2"
-            android:layout_marginLeft="80dp"
-            android:layout_marginRight="80dp">
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="60dp">
 
             <TextView
                 android:id="@+id/Mypage_range"
@@ -169,6 +181,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="200m"
+                android:textSize="23sp"
                 android:textColor="@color/black"
                 />
         </LinearLayout>
@@ -179,22 +192,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="60dp">
 
         <TextView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="복귀 시간"
-            android:textSize="20sp">
+            android:textColor="@color/black"
+            android:textSize="22sp">
         </TextView>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_height="30dp"
             android:gravity="center"
             android:background="@drawable/roundbutton2"
-            android:layout_marginLeft="80dp"
-            android:layout_marginRight="80dp">
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="60dp">
 
             <TextView
                 android:id="@+id/Mypage_time"
@@ -203,6 +218,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:textColor="@color/black"
+                android:textSize="23sp"
                 android:text="19:00" />
         </LinearLayout>
 

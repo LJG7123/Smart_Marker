@@ -2,9 +2,11 @@ package com.example.smartmarker;
 
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
@@ -14,6 +16,8 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     public static final String TAG = "MAIN";
+    public String data;
+    Fragment MyPageFragment;
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -23,10 +27,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+        Intent intent = getIntent();
+        data=intent.getStringExtra("user_id");
+        MyPageFragment = new MyPageFragment();
+
+
         tabLayout=findViewById(R.id.tab);
         tabLayout.addTab(tabLayout.newTab().setText("설정"));
         tabLayout.addTab(tabLayout.newTab().setText("지도"));
         tabLayout.addTab(tabLayout.newTab().setText("내정보"));
+
 
         viewPager=findViewById(R.id.viewpager);
 
@@ -48,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
 
+
             }
 
             @Override
@@ -60,7 +71,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-    }
 
+
+    }
 
 }

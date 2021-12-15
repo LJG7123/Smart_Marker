@@ -19,6 +19,8 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import com.google.android.gms.location.GeofencingClient;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.naver.maps.geometry.LatLng;
@@ -47,6 +49,9 @@ public class NaverMapFragment extends Fragment implements OnMapReadyCallback{
 
     private double latitude;
     private double longitude;
+
+    private GeofencingClient geofencingClient;
+
     Context context;
 
 
@@ -77,6 +82,7 @@ public class NaverMapFragment extends Fragment implements OnMapReadyCallback{
         context = getActivity();
         getpermisson();
         gps=new GPSTracker(context);
+
         if (gps.canGetLocation()) {
 
             latitude = gps.getLatitude();

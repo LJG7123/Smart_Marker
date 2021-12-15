@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.smartmarker.repositories.RepositoryAccount;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,6 +27,7 @@ public class Login extends AppCompatActivity {
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference db = database.getReference();
 
+    private RepositoryAccount repositoryAccount = RepositoryAccount.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +73,7 @@ public class Login extends AppCompatActivity {
 
                     if (user.getPw().equals(string_pw)) {
                         PreferenceManager.setUserID(Login.this, string_id);
+                        repositoryAccount.setId(string_id);
                         startActivity(intent);
                     }
                     else {
