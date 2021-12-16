@@ -66,6 +66,7 @@ public class FirebaseNotificationService extends FirebaseMessagingService {
                         .setContentTitle(title)
                         .setContentText(text)
                         .setAutoCancel(true)
+                        .setPriority(NotificationCompat.PRIORITY_HIGH)
                         .setSound(defaultUri)
                         .setContentIntent(pendingIntent);
 
