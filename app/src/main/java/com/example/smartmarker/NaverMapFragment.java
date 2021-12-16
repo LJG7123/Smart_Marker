@@ -189,9 +189,6 @@ public class NaverMapFragment extends Fragment implements OnMapReadyCallback{
             }
         });
 
-
-//
-//
         return view;
 
     }

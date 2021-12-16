@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
@@ -30,6 +31,7 @@ public class FirebaseNotificationService extends FirebaseMessagingService {
     public FirebaseNotificationService() {
     }
 //받는사람
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onMessageReceived(@NonNull RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
@@ -68,11 +70,9 @@ public class FirebaseNotificationService extends FirebaseMessagingService {
                         .setContentIntent(pendingIntent);
 
         NotificationManager notificationManger = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            String channelName = "channelName";
-            NotificationChannel channel = new NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_HIGH);
-            notificationManger.createNotificationChannel(channel);
-        }
+        String channelName = "channelName";
+        NotificationChannel channel = new NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_HIGH);
+        notificationManger.createNotificationChannel(channel);
         notificationManger.notify(0, notificationBuilder.build());
 
     }
