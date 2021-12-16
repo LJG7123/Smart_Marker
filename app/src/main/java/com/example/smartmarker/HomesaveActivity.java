@@ -91,7 +91,6 @@ public class HomesaveActivity extends AppCompatActivity implements View.OnClickL
                     }
 
                     finish();
-
                 } else {
                     // Can't get location.
                     // GPS or network is not enabled.

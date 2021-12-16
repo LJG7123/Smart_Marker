@@ -115,6 +115,7 @@ public class Login extends AppCompatActivity {
                     sendmsg("잘못된 아이디입니다.");
                 }
             }
+
             @Override
             //오류 생길때.
             public void onCancelled(@NonNull DatabaseError error) {
