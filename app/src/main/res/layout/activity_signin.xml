@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Signin"
-    android:background="#CCF0F4">
+    android:background="#c6e2ff">
 
 
     <LinearLayout
@@ -16,7 +16,7 @@
         android:background="@drawable/roundbutton2"
         android:layout_marginLeft="80dp"
         android:layout_marginRight="80dp"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="160dp">
 
         <EditText
             android:id="@+id/Signin_id"
@@ -37,7 +37,7 @@
         android:background="@drawable/roundbutton2"
         android:layout_marginLeft="80dp"
         android:layout_marginRight="80dp"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="12dp">
 
         <EditText
             android:id="@+id/Signin_pw"
@@ -59,7 +59,7 @@
         android:background="@drawable/roundbutton2"
         android:layout_marginLeft="80dp"
         android:layout_marginRight="80dp"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="12dp">
 
         <EditText
             android:id="@+id/Signin_name"
@@ -79,7 +79,7 @@
         android:background="@drawable/roundbutton2"
         android:layout_marginLeft="80dp"
         android:layout_marginRight="80dp"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="12dp">
 
         <EditText
             android:id="@+id/Signin_phone"
@@ -99,7 +99,7 @@
         android:background="@drawable/roundbutton2"
         android:layout_marginLeft="80dp"
         android:layout_marginRight="80dp"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="12dp">
 
         <EditText
             android:id="@+id/Signin_home"
@@ -120,7 +120,7 @@
         android:background="@drawable/roundbutton2"
         android:layout_marginLeft="80dp"
         android:layout_marginRight="80dp"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="12dp">
 
         <EditText
             android:id="@+id/Signin_careid"

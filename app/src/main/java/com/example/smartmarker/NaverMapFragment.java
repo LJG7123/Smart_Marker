@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.PointF;
 import android.os.Bundle;
+import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,9 +21,6 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import com.example.smartmarker.Notifications.MyResponse;
-import com.example.smartmarker.Notifications.NotificationData;
-import com.example.smartmarker.Notifications.SendData;
 import com.example.smartmarker.repositories.RepositoryAccount;
 import com.google.android.gms.location.Geofence;
 import com.google.android.gms.location.GeofencingClient;
@@ -54,6 +52,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class NaverMapFragment extends Fragment implements OnMapReadyCallback{
 
@@ -72,7 +72,11 @@ public class NaverMapFragment extends Fragment implements OnMapReadyCallback{
 
     private double dis;
 
+    private String strPhone;
+
     private RepositoryAccount repositoryAccount = RepositoryAccount.getInstance();
+    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private DatabaseReference db = database.getReference();
 
     Context context;
 
@@ -119,14 +123,73 @@ public class NaverMapFragment extends Fragment implements OnMapReadyCallback{
             gps.showSettingsAlert();
         }
 
-
-
         dis=ruler(latitude,longitude,loca_latitude,loca_longitude);
 
-        if(dis>200)
-        {
+        db.child("Users").child(repositoryAccount.getId()).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String care_id;
+                User user1 = snapshot.getValue(User.class);
+                care_id=user1.getCare_id();
 
-        }
+                db.child("Users").child(care_id).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        User user2 = snapshot.getValue(User.class);
+                        String token = user2.getToken();
+                        Runnable runnable=new Runnable() {
+                            @Override
+                            public void run() {
+
+                                try {
+
+                                    //댓글 시 알림창 저장
+
+                                    APIService apiService = Client.getClient("https://fcm.googleapis.com/").create(APIService.class);
+                                    apiService.sendNotification(new NotificationData(new SendData("경고", "설정 반경을 벗어났습니다."), token))
+                                            .enqueue(new Callback<MyResponse>() {
+                                                @Override
+                                                public void onResponse(Call<MyResponse> call, Response<MyResponse> response) {
+                                                    if (response.code() == 200) {
+                                                        if (response.body().success == 1) {
+                                                            Log.e("Notification", "success");
+                                                        }
+                                                    }
+
+                                                }
+
+                                                @Override
+                                                public void onFailure(Call<MyResponse> call, Throwable t) {
+
+                                                }
+                                            });
+
+
+                                } catch (NullPointerException e) {
+
+                                }
+
+                            }
+                        };
+                        Thread tr = new Thread(runnable);
+                        tr.start();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
 //
 //
         return view;

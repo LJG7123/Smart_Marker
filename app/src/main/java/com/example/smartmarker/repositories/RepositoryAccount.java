@@ -4,6 +4,7 @@ public class RepositoryAccount {
     private static RepositoryAccount repositoryAccount = new RepositoryAccount();
 
     private String id, time, location, care_id, range;
+    private String phone;
     private Double lati, longi;
 
     public static RepositoryAccount getInstance() {
@@ -62,5 +63,13 @@ public class RepositoryAccount {
 
     public void setRange(String range) {
         this.range = range;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

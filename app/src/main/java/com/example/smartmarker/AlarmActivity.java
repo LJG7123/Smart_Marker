@@ -71,7 +71,7 @@ public class AlarmActivity extends AppCompatActivity implements TimePickerDialog
     private void updateTimeText(Calendar c){
 
         Log.d(TAG, "## updateTimeText ##");
-        String timeText = "알람시간 : ";
+        String timeText = "알람 : ";
         timeText += DateFormat.getTimeInstance(DateFormat.SHORT).format(c.getTime());
 
         time_text.setText(timeText);

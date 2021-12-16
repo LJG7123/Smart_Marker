@@ -21,7 +21,8 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="31dp"
             android:text="설정되지 않은상태"
-            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textSize="50sp"
             android:layout_gravity="center"
             android:layout_marginTop="27dp"
             android:textColor="@color/black"/>
@@ -34,7 +35,7 @@
             android:background="@drawable/roundbutton"
             android:clickable="true"
             android:text=" 시간 지정 "
-            android:textSize="20sp"
+            android:textSize="25sp"
             android:gravity="center"/>
 
         <TextView
@@ -47,7 +48,7 @@
             android:layout_gravity="center"
             android:clickable="true"
             android:gravity="center"
-            android:textSize="20sp"/>
+            android:textSize="25sp"/>
 
 
     </LinearLayout>
