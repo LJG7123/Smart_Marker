@@ -33,7 +33,7 @@ public class HomesaveActivity extends AppCompatActivity implements View.OnClickL
     GPSTracker gps;
     SharedPreferences homeAddress;
     SharedPreferences.Editor homeAddressEdit;
-    private Button btn_gpssave;
+    private TextView btn_gpssave;
     private double Homelatitude;
     private double Homelongitude;
 
@@ -56,7 +56,7 @@ public class HomesaveActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void init(){
-        btn_gpssave=(Button)findViewById(R.id.btn_gpssave);
+        btn_gpssave=(TextView)findViewById(R.id.btn_gpssave);
     }
     @Override
     public void onCreate(Bundle savedInstanceState) {

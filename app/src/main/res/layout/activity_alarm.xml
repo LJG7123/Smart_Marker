@@ -10,7 +10,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_gravity="center">
 
 
         <TextView
@@ -32,7 +33,7 @@
             android:layout_gravity="center"
             android:background="@drawable/roundbutton"
             android:clickable="true"
-            android:text="시간 지정"
+            android:text=" 시간 지정 "
             android:textSize="20sp"
             android:gravity="center"/>
 
@@ -40,7 +41,7 @@
             android:id="@+id/alarm_cancel_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="알람 취소"
+            android:text=" 알람 취소 "
             android:layout_marginTop="27dp"
             android:background="@drawable/roundbutton"
             android:layout_gravity="center"
