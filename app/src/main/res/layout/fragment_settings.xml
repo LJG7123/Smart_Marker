@@ -14,24 +14,26 @@
         android:layout_gravity="center"
         android:orientation="vertical">
 
-        <Button
+        <ImageButton
             android:id="@+id/alarming"
             android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/clock_icon"/>
-        <Button
+            android:layout_width="100dp"
+            android:layout_height="125dp"
+            android:background="@drawable/clock_icon1"/>
+        <ImageButton
             android:id="@+id/gpsset"
             android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/location_icon" />
+            android:layout_width="100dp"
+            android:layout_height="125dp"
+            android:background="@drawable/crosshair_icon1"
+            android:layout_margin="27dp"/>
 
-        <Button
+        <ImageButton
             android:id="@+id/disset"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="125dp"
             android:layout_gravity="center"
+            android:background="@drawable/range_icon1"
             android:text="범위 설정" />
 
 
