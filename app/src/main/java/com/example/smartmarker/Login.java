@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +23,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Login extends AppCompatActivity {
 
@@ -105,6 +110,69 @@ public class Login extends AppCompatActivity {
                     if (user.getPw().equals(string_pw)) {
                         PreferenceManager.setUserID(Login.this, string_id);
                         repositoryAccount.setId(string_id);
+                        db.child("Users").child(repositoryAccount.getId()).addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                String care_id;
+                                User user1 = snapshot.getValue(User.class);
+                                care_id=user1.getCare_id();
+
+                                db.child("Users").child(care_id).addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        User user2 = snapshot.getValue(User.class);
+                                        String token = user2.getToken();
+                                        Runnable runnable=new Runnable() {
+                                            @Override
+                                            public void run() {
+
+                                                try {
+
+                                                    //댓글 시 알림창 저장
+
+                                                    APIService apiService = Client.getClient("https://fcm.googleapis.com/").create(APIService.class);
+                                                    apiService.sendNotification(new NotificationData(new SendData("경고", "설정 반경을 벗어났습니다."), token))
+                                                            .enqueue(new Callback<MyResponse>() {
+                                                                @Override
+                                                                public void onResponse(Call<MyResponse> call, Response<MyResponse> response) {
+                                                                    if (response.code() == 200) {
+                                                                        if (response.body().success == 1) {
+                                                                            Log.e("Notification", "success");
+                                                                        }
+                                                                    }
+
+                                                                }
+
+                                                                @Override
+                                                                public void onFailure(Call<MyResponse> call, Throwable t) {
+
+                                                                }
+                                                            });
+
+
+                                                } catch (NullPointerException e) {
+
+                                                }
+
+                                            }
+                                        };
+                                        Thread tr = new Thread(runnable);
+                                        tr.start();
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
+
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
                         startActivity(intent);
                     }
                     else {
