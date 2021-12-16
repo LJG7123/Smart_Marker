@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,10 +20,23 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import com.example.smartmarker.Notifications.MyResponse;
+import com.example.smartmarker.Notifications.NotificationData;
+import com.example.smartmarker.Notifications.SendData;
+import com.example.smartmarker.repositories.RepositoryAccount;
+import com.google.android.gms.location.Geofence;
 import com.google.android.gms.location.GeofencingClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.model.PolylineOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.naver.maps.geometry.LatLng;
 import com.naver.maps.map.CameraPosition;
 import com.naver.maps.map.LocationTrackingMode;
@@ -35,8 +49,11 @@ import com.naver.maps.map.overlay.MultipartPathOverlay;
 import com.naver.maps.map.overlay.PathOverlay;
 import com.naver.maps.map.util.FusedLocationSource;
 
+import java.util.AbstractCollection;
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
 
 public class NaverMapFragment extends Fragment implements OnMapReadyCallback{
 
@@ -47,18 +64,22 @@ public class NaverMapFragment extends Fragment implements OnMapReadyCallback{
     private MapFragment mapFragment;
     private Marker houseMarker;
 
-    private double latitude;
+    private double latitude; // 현재위치
     private double longitude;
 
-    private GeofencingClient geofencingClient;
+    private double loca_latitude; // 집위치
+    private double loca_longitude;
+
+    private double dis;
+
+    private RepositoryAccount repositoryAccount = RepositoryAccount.getInstance();
 
     Context context;
 
 
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1000;
     private FusedLocationSource locationSource;
-    //
-    //
+
     private void getpermisson() {
 
         // 메니패스트에 권한이 있는지 확인
@@ -83,6 +104,7 @@ public class NaverMapFragment extends Fragment implements OnMapReadyCallback{
         getpermisson();
         gps=new GPSTracker(context);
 
+
         if (gps.canGetLocation()) {
 
             latitude = gps.getLatitude();
@@ -95,6 +117,15 @@ public class NaverMapFragment extends Fragment implements OnMapReadyCallback{
             // GPS or network is not enabled.
             // Ask user to enable GPS/network in settings.
             gps.showSettingsAlert();
+        }
+
+
+
+        dis=ruler(latitude,longitude,loca_latitude,loca_longitude);
+
+        if(dis>200)
+        {
+
         }
 //
 //
@@ -152,4 +183,25 @@ public class NaverMapFragment extends Fragment implements OnMapReadyCallback{
 
 
     }
+
+    private double ruler(double first_latitude,double first_longitude,double second_latitude,double second_longitude)
+    {
+        double distance=0.0;
+
+        double R = 6372.8;
+
+        double dLat = Math.toRadians(first_latitude-second_latitude);
+        double dLon = Math.toRadians(first_longitude-second_longitude);
+        double fr_latitude = Math.toRadians(first_latitude);
+        double sr_latitude = Math.toRadians(second_latitude);
+
+        double tempt = Math.pow(Math.sin(dLat/2),2)+Math.pow(Math.sin(dLon/2),2)*Math.cos(fr_latitude)*Math.cos(sr_latitude);
+        double c = 2*Math.asin(Math.sqrt(tempt));
+
+        distance = R*c*1000;
+
+        return distance;
+    }
+
+
 }

@@ -3,9 +3,7 @@ package com.example.smartmarker;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,16 +14,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.smartmarker.repositories.RepositoryAccount;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 public class Signin extends AppCompatActivity {
-    EditText Signin_id, Signin_pw, Signin_name, Signin_phone, Signin_home;
+    EditText Signin_id, Signin_pw, Signin_name, Signin_phone, Signin_home, Signin_careid;
     TextView Login_back;
-    String string_id, string_pw, string_name, string_phone, string_home;
+    String string_id, string_pw, string_name, string_phone, string_home, string_careid;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference db = database.getReference();
 
@@ -40,6 +36,7 @@ public class Signin extends AppCompatActivity {
         Signin_name = (EditText) findViewById(R.id.Signin_name);
         Signin_phone = (EditText) findViewById(R.id.Signin_phone);
         Signin_home=(EditText) findViewById(R.id.Signin_home);
+        Signin_careid=(EditText) findViewById(R.id.Signin_careid);
         Login_back = (TextView) findViewById(R.id.Login_back);
 
     }
@@ -51,6 +48,7 @@ public class Signin extends AppCompatActivity {
         string_name = Signin_name.getText().toString();
         string_phone = Signin_phone.getText().toString();
         string_home = Signin_home.getText().toString();
+        string_careid = Signin_careid.getText().toString();
 
 
         FirebaseMessaging.getInstance().getToken()
@@ -65,9 +63,10 @@ public class Signin extends AppCompatActivity {
 
                         String token = task.getResult();
 
-                        User newuser = new User(string_id, string_pw, string_name, string_phone, string_home, token);
+                        User newuser = new User(string_id, string_pw, string_name, string_phone, string_home, string_careid, token);
 
                         repositoryAccount.setLocation(string_home);
+                        repositoryAccount.setCare_id(string_careid);
 
 
                         db.child("Users").child(string_id).setValue(newuser); //id로 구분. setValue->정보 입력.

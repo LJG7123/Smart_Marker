@@ -29,6 +29,7 @@ public class MyPageFragment extends Fragment {
     TextView Mypage_phone;
     TextView Mypage_home;
     TextView Mypage_time;
+    TextView Mypage_range;
 
     @Nullable
     @Override
@@ -40,6 +41,7 @@ public class MyPageFragment extends Fragment {
         Mypage_phone=(TextView)view.findViewById(R.id.Mypage_phone);
         Mypage_home=(TextView)view.findViewById(R.id.Mypage_home);
         Mypage_time=(TextView)view.findViewById(R.id.Mypage_time);
+        Mypage_range=(TextView)view.findViewById(R.id.Mypage_range);
 
         db.child("Users").child(repositoryAccount.getId()).addValueEventListener(new ValueEventListener() {
             @Override
@@ -55,6 +57,7 @@ public class MyPageFragment extends Fragment {
                 Mypage_home.setText(strHome);
                 Mypage_time.setText(repositoryAccount.getTime());
                 Mypage_home.setText(repositoryAccount.getLocation());
+                Mypage_range.setText(repositoryAccount.getRange());
             }
 
             @Override

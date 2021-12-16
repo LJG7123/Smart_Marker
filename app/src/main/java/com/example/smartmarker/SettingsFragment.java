@@ -25,6 +25,8 @@ public class SettingsFragment extends Fragment implements View.OnClickListener{
         onButtonClickedAlarming.setOnClickListener(this);
         Button gpsset=(Button) view.findViewById(R.id.gpsset);
         gpsset.setOnClickListener(this);
+        Button disset=(Button) view.findViewById(R.id.disset);
+        disset.setOnClickListener(this);
         return view;
     }
 
@@ -40,6 +42,9 @@ public class SettingsFragment extends Fragment implements View.OnClickListener{
                 break;
             case R.id.gpsset:
                 startActivity(new Intent(getActivity(), HomesaveActivity.class));
+                break;
+            case R.id.disset:
+                startActivity(new Intent(getActivity(), LocationActivity.class));
                 break;
         }
 

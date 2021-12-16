@@ -8,7 +8,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <application
         android:allowBackup="true"
@@ -17,13 +17,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartMarker">
+        <activity
+            android:name=".LocationActivity"
+            android:exported="true" />
 
-        <receiver android:name=".GeofenceBroadcastReceiver"/>
+        <receiver android:name=".GeofenceBroadcastReceiver" />
 
         <activity
             android:name=".AlarmActivity"
             android:exported="true" />
-        <activity android:name=".HomesaveActivity"/>
+        <activity android:name=".HomesaveActivity" />
         <activity android:name=".intro">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,7 +34,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".Signin" />
         <activity android:name=".Login">
             <intent-filter>
@@ -55,8 +58,6 @@
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="r5lrkwge4n" />
-
-
     </application>
 
 </manifest>

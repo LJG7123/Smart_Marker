@@ -180,7 +180,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="200m"
                 android:textSize="23sp"
                 android:textColor="@color/black"
                 />

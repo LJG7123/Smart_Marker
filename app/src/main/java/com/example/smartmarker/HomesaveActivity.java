@@ -76,6 +76,10 @@ public class HomesaveActivity extends AppCompatActivity implements View.OnClickL
 
                     Homelatitude = gps.getLatitude();
                     Homelongitude = gps.getLongitude();
+
+                    repositoryAccount.setLati(Homelatitude);
+                    repositoryAccount.setLongi(Homelongitude);
+
                     //Log.d("Homelatitude", Homelatitude + "");
                     //Log.d("Homelongitude", Homelongitude + "");
                     Geocoder geocoder = new Geocoder(getApplicationContext());

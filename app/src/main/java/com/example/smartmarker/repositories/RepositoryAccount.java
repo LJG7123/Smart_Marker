@@ -3,7 +3,8 @@ package com.example.smartmarker.repositories;
 public class RepositoryAccount {
     private static RepositoryAccount repositoryAccount = new RepositoryAccount();
 
-    private String id, time, location;
+    private String id, time, location, care_id, range;
+    private Double lati, longi;
 
     public static RepositoryAccount getInstance() {
         return repositoryAccount;
@@ -31,5 +32,35 @@ public class RepositoryAccount {
     public void setLocation(String location)
     {
         this.location=location;
+    }
+
+    public Double getLati() { return lati; }
+    public void setLati(Double lati)
+    {
+        this.lati=lati;
+    }
+
+    public Double getLongi() {
+        return longi;
+    }
+    public void setLongi(Double longi)
+    {
+        this.longi=longi;
+    }
+
+    public String getCare_id() {
+        return care_id;
+    }
+
+    public void setCare_id(String care_id) {
+        this.care_id = care_id;
+    }
+
+    public String getRange() {
+        return range;
+    }
+
+    public void setRange(String range) {
+        this.range = range;
     }
 }

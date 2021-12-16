@@ -2,17 +2,18 @@ package com.example.smartmarker;
 
 public class User {
 
-    private String id, pw, name, phone, home, token;
+    private String id, pw, name, phone, home, token, care_id;
     public User(){
 
     }
 
-    public User(String id, String pw, String name, String phone, String home, String token) {
+    public User(String id, String pw, String name, String phone, String home, String care_id, String token) {
         this.id = id;
         this.pw = pw;
         this.name = name;
         this.phone= phone;
         this.home=home;
+        this.care_id=care_id;
         this.token = token;
     }
 
@@ -61,4 +62,11 @@ public class User {
         this.token = token;
     }
 
+    public String getCare_id() {
+        return care_id;
+    }
+
+    public void setCare_id(String care_id) {
+        this.care_id = care_id;
+    }
 }

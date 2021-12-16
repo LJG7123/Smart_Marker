@@ -4,37 +4,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".LocationActivity"
     android:background="#c6e2ff">
-
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/alarming"
+
+        <TextView
+            android:id="@+id/round_set"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="31dp"
+            android:text="반경 설정"
+            android:textSize="30sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="27dp"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/round_setting"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/clock_icon"/>
-        <Button
-            android:id="@+id/gpsset"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/location_icon" />
+            android:hint="설정 입력"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/black" />
 
         <Button
-            android:id="@+id/disset"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="확인"
             android:layout_gravity="center"
-            android:text="범위 설정" />
-
+            android:onClick="check"/>
 
     </LinearLayout>
+
+
 
 </LinearLayout>
