@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.smartmarker.repositories.RepositoryAccount;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -28,6 +29,7 @@ public class Signin extends AppCompatActivity {
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference db = database.getReference();
 
+    private RepositoryAccount repositoryAccount = RepositoryAccount.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +66,8 @@ public class Signin extends AppCompatActivity {
                         String token = task.getResult();
 
                         User newuser = new User(string_id, string_pw, string_name, string_phone, string_home, token);
+
+                        repositoryAccount.setLocation(string_home);
 
 
                         db.child("Users").child(string_id).setValue(newuser); //id로 구분. setValue->정보 입력.

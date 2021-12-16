@@ -22,7 +22,10 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
 
+import com.example.smartmarker.repositories.RepositoryAccount;
+
 import java.io.IOException;
+import java.text.DateFormat;
 import java.util.List;
 import java.util.Locale;
 
@@ -33,6 +36,10 @@ public class HomesaveActivity extends AppCompatActivity implements View.OnClickL
     private Button btn_gpssave;
     private double Homelatitude;
     private double Homelongitude;
+
+    private RepositoryAccount repositoryAccount = RepositoryAccount.getInstance();
+
+
     private void getpermisson() {
 
         // 메니패스트에 권한이 있는지 확인
@@ -85,6 +92,8 @@ public class HomesaveActivity extends AppCompatActivity implements View.OnClickL
                         Toast.makeText(HomesaveActivity.this, str, Toast.LENGTH_SHORT).show();
                         homeAddressEdit.putString("address", str);
                         homeAddressEdit.apply();
+
+                        repositoryAccount.setLocation(str);
                     }
                     else{
                         str = "주소를 찾을 수 없습니다.";

@@ -11,7 +11,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.smartmarker.repositories.RepositoryAccount;
+
 public class SettingsFragment extends Fragment implements View.OnClickListener{
+
 
     @Nullable
     @Override

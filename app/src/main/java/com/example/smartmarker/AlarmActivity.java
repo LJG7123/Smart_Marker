@@ -15,6 +15,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import com.example.smartmarker.repositories.RepositoryAccount;
+
 import org.w3c.dom.Text;
 
 import java.text.DateFormat;
@@ -25,6 +27,8 @@ public class AlarmActivity extends AppCompatActivity implements TimePickerDialog
     public static final String TAG = "MAIN";
 
     private TextView time_text;
+
+    private RepositoryAccount repositoryAccount = RepositoryAccount.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +75,7 @@ public class AlarmActivity extends AppCompatActivity implements TimePickerDialog
         timeText += DateFormat.getTimeInstance(DateFormat.SHORT).format(c.getTime());
 
         time_text.setText(timeText);
+        repositoryAccount.setTime(DateFormat.getTimeInstance(DateFormat.SHORT).format(c.getTime()));
     }
 
     private void startAlarm(Calendar c){
