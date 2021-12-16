@@ -4,36 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="#c6e2ff">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="100dp">
+        android:layout_gravity="center"
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/alarming"
+            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="알람 설정"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="27dp" />
+            android:background="@drawable/clock_icon"/>
         <Button
             android:id="@+id/gpsset"
+            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="현재위치 집으로 설정"
-            android:layout_centerHorizontal="true" />
-        <Button
-            android:id="@+id/return_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="복귀 시간 설정"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="27dp" />
-
+            android:background="@drawable/location_icon"/>
 
 
     </LinearLayout>

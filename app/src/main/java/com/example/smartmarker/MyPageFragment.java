@@ -50,6 +50,7 @@ public class MyPageFragment extends Fragment {
                 Mypage_name.setText(strName);
                 String strPhone=user.getPhone();
                 Mypage_phone.setText(strPhone);
+
                 String strHome=user.getHome();
                 Mypage_home.setText(strHome);
 

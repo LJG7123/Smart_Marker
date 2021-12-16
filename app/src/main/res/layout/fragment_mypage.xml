@@ -89,7 +89,7 @@
         <TextView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="비상 연락처"
+            android:text="집 주소"
             android:textColor="@color/black"
             android:textSize="21sp">
         </TextView>
@@ -103,7 +103,7 @@
             android:layout_marginRight="60dp">
 
             <TextView
-                android:id="@+id/Mypage_phone"
+                android:id="@+id/Mypage_home"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -125,7 +125,7 @@
         <TextView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="집 주소"
+            android:text="비상 연락처"
             android:textColor="@color/black"
             android:textSize="22sp">
         </TextView>
@@ -139,7 +139,7 @@
             android:layout_marginRight="60dp">
 
             <TextView
-                android:id="@+id/Mypage_home"
+                android:id="@+id/Mypage_phone"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

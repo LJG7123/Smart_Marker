@@ -33,10 +33,10 @@ public class SettingsFragment extends Fragment implements View.OnClickListener{
         switch(b.getId())
         {
             case R.id.alarming:
-                getActivity().startActivity(new Intent(getActivity(), AlarmActivity.class));
+                startActivity(new Intent(getActivity(), AlarmActivity.class));
                 break;
             case R.id.gpsset:
-                getActivity().startActivity(new Intent(getActivity(), HomesaveActivity.class));
+                startActivity(new Intent(getActivity(), HomesaveActivity.class));
                 break;
         }
 

@@ -3,21 +3,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomesaveActivity">
+    tools:context=".HomesaveActivity"
+    android:background="#c6e2ff">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:orientation="vertical">
        <TextView
+           android:id="@+id/show_address"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
+           android:layout_gravity="center"
            android:text="진짜 등록하시겠습니까?"/>
         <Button
             android:id="@+id/btn_gpssave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="등록하겠습니다."
-            />
+            android:layout_gravity="center"
+            android:text="등록" />
 
     </LinearLayout>
 </LinearLayout>

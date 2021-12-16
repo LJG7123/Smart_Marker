@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AlarmActivity"
-    android:background="#CCF0F4">
+    android:background="#c6e2ff">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,36 +22,31 @@
             android:text="설정되지 않은상태"
             android:textSize="30sp"
             android:layout_gravity="center"
+            android:layout_marginTop="27dp"
             android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/time_btn"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/roundbutton"
             android:clickable="true"
             android:text="시간 지정"
             android:textSize="20sp"
-            android:gravity="center"
-            android:layout_marginLeft="160dp"
-            android:layout_marginRight="160dp"/>
+            android:gravity="center"/>
 
         <TextView
             android:id="@+id/alarm_cancel_btn"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="알람 취소"
-            android:layout_below="@+id/time_btn"
-            android:layout_centerHorizontal="true"
             android:layout_marginTop="27dp"
             android:background="@drawable/roundbutton"
             android:layout_gravity="center"
             android:clickable="true"
             android:gravity="center"
-            android:textSize="20sp"
-            android:layout_marginLeft="160dp"
-            android:layout_marginRight="160dp"/>
+            android:textSize="20sp"/>
 
 
     </LinearLayout>
